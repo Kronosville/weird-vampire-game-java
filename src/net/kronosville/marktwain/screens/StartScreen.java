@@ -1,21 +1,40 @@
 package net.kronosville.marktwain.screens;
 
+import net.kronosville.marktwain.Game;
+import net.kronosville.marktwain.characters.player.Lincoln;
+import net.kronosville.marktwain.characters.player.Twain;
+import net.kronosville.marktwain.characters.player.Player;
 import net.kronosville.marktwain.images.ImageLoader;
 
-import javax.swing.JPanel;
-import javax.swing.JLabel;
+import javax.swing.*;
+
+import java.awt.event.MouseEvent;
 
 public final class StartScreen implements Screen {
+    private final ImageIcon twainImage, lincolnImage;
+    private final JLabel twainLabel, lincolnLabel;
 
-    @Override
-    public void displayOutput(JPanel pane, ImageLoader imageLoader) {
+    public StartScreen(JPanel panel, ImageLoader imageLoader) {
+        twainImage = imageLoader.load("mark-twain.jpg");
+        lincolnImage = imageLoader.load("abraham-lincoln.jpg");
 
-        pane.add(new JLabel("", imageLoader.load("mark-twain.jpg"), JLabel.LEFT));
-        pane.add(new JLabel("", imageLoader.load("abraham-lincoln.jpg"), JLabel.RIGHT));
+        twainLabel = new JLabel("", twainImage, JLabel.LEFT);
+        lincolnLabel = new JLabel("", lincolnImage, JLabel.RIGHT);
+
+        panel.add(twainLabel);
+        panel.add(lincolnLabel);
     }
 
     @Override
-    public Screen respondToInput() {
-        return this;
+    public void displayOutput(JPanel pane) {
+
+    }
+
+    @Override
+    public Screen respondToInput(MouseEvent e) {
+        if (!(e.getComponent() == twainLabel || e.getComponent() == lincolnLabel)) return this;
+
+        Player player = e.getComponent() == twainLabel ? new Twain(twainImage) : new Lincoln(lincolnImage);
+        return new MapScreen(new Game(player));
     }
 }
