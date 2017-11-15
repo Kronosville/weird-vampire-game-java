@@ -14,20 +14,17 @@ public final class StartScreen implements Screen {
     private final ImageIcon twainImage, lincolnImage;
     private final JLabel twainLabel, lincolnLabel;
 
-    public StartScreen(JPanel panel, ImageLoader imageLoader) {
+    public StartScreen(ImageLoader imageLoader) {
         twainImage = imageLoader.load("mark-twain.jpg");
         lincolnImage = imageLoader.load("abraham-lincoln.jpg");
-
         twainLabel = new JLabel("", twainImage, JLabel.LEFT);
         lincolnLabel = new JLabel("", lincolnImage, JLabel.RIGHT);
-
-        panel.add(twainLabel);
-        panel.add(lincolnLabel);
     }
 
     @Override
-    public void displayOutput(JPanel pane) {
-
+    public void displayOutput(JPanel panel) {
+        panel.add(twainLabel);
+        panel.add(lincolnLabel);
     }
 
     @Override
