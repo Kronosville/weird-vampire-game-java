@@ -2,9 +2,9 @@ package net.kronosville.marktwain.screens;
 
 import net.kronosville.marktwain.images.ImageLoader;
 
-import java.awt.Container;
+import javax.swing.JPanel;
 
 public interface Screen {
-    void displayOutput(Container pane, ImageLoader imageLoader);
+    void displayOutput(JPanel panel, ImageLoader imageLoader);
     Screen respondToInput(/* input */);
 }
