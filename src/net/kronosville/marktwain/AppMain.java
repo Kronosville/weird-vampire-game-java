@@ -9,7 +9,7 @@ import java.awt.EventQueue;
 
 public final class AppMain {
 
-    private GameGUI gui;
+    private final GameGUI gui;
     private Screen screen;
 
     public Screen getScreen() { return screen; }

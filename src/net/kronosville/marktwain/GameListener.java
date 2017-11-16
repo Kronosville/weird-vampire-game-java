@@ -1,13 +1,11 @@
 package net.kronosville.marktwain;
 
-import net.kronosville.marktwain.screens.Screen;
-
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-class GameListener implements MouseListener  {
+final class GameListener implements MouseListener  {
 
-    private AppMain app;
+    private final AppMain app;
 
     GameListener(AppMain app) {
         this.app = app;

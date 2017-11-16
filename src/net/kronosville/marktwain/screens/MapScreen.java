@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 import java.awt.event.MouseEvent;
 
 final class MapScreen implements Screen {
-    private Game game;
+    private final Game game;
 
     MapScreen(Game game) {
         this.game = game;

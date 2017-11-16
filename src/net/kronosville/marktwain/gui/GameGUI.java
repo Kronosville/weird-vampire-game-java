@@ -5,12 +5,10 @@ import net.kronosville.marktwain.AppMain;
 import javax.swing.*;
 import java.awt.*;
 
-public class GameGUI extends JFrame {
+public final class GameGUI extends JFrame {
 
-    private AppMain app;
-    private JPanel panel;
-
-    public JPanel getPanel() { return panel; }
+    private final AppMain app;
+    private final JPanel panel;
 
     public GameGUI(AppMain app) {
         super("Mark Twain: Vampire Hunter");
